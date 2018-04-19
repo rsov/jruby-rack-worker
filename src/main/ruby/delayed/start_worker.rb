@@ -15,6 +15,8 @@ begin
   if sleep_delay = env['SLEEP_DELAY'] # DEFAULT_SLEEP_DELAY = 5
     options[:sleep_delay] = sleep_delay.to_f
   end
+JRuby::Rack::Worker.log("Starting DJ worker. Options: #{options}")
+
   worker = Delayed::JRubyWorker.new(options)
   worker.start
 rescue Exception => e

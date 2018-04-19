@@ -82,9 +82,9 @@ module Delayed
       if (@name ||= nil).nil?
         # super - [prefix]host:hostname pid:process_pid
         begin
-          @name = "#{super} thread:#{thread_id}".freeze
+          @name = "#{super} thread:#{thread_id}|q:#{queues}".freeze
         rescue
-          @name = "#{@name_prefix}thread:#{thread_id}".freeze
+          @name = "#{@name_prefix}thread:#{thread_id}|q:#{queues}".freeze
         end
       end
       @name
