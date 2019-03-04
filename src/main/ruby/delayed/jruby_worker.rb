@@ -36,7 +36,7 @@ module Delayed
     Worker.extend SyncLifecycle if Delayed.const_defined? :Lifecycle
 
     THREAD_LOCAL_ACCESSORS = [
-      :min_priority, :max_priority, :sleep_delay, :read_ahead, :queues, :exit_on_complete
+      :min_priority, :max_priority, :sleep_delay, :read_ahead, :exit_on_complete
     ]
     private_constant :THREAD_LOCAL_ACCESSORS if respond_to?(:private_constant)
     # due Delayed::Worker#initialize(options = {}) :
